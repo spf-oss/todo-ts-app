@@ -1,19 +1,19 @@
-import { computed, ref, Ref } from "vue";
-import ITodoListItem from "./ITodoListItem";
+import { computed, ref, Ref } from "vue"
+import ITodoListItem from "./ITodoListItem"
 
 export default function useFilteredTodos(todos: Ref<ITodoListItem[]>) {
-    const filter = ref("all");
+    const filter = ref("all")
 
     const filteredTodos = computed(() => {
         switch (filter.value) {
             case "done":
-                return todos.value.filter((todo) => todo.completed);
+                return todos.value.filter((todo) => todo.completed)
             case "todo":
-                return todos.value.filter((todo) => !todo.completed);
+                return todos.value.filter((todo) => !todo.completed)
             default:
-                return todos.value;
+                return todos.value
         }
-    });
+    })
 
-    return { filter, filteredTodos };
-};
+    return { filter, filteredTodos }
+}

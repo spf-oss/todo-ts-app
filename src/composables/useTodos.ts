@@ -1,22 +1,29 @@
 import { onMounted, Ref, ref } from "vue";
 import ITodoListItem from "./ITodoListItem";
 
-export default function userTodos(): IUseTodos {
+export default function useTodos(): IUseTodos {
     const todos: Ref<ITodoListItem[]> = ref([]);
 
-    const addTodo = (todo: never) => todos.value.push(todo);
+    const addTodo = (todo:ITodoListItem) => 
+    {
+        console.log(todo);
+        todos.value.push(todo)
+    };
 
     const fetchTodos = async () => {
-        const responst = await fetch("https://jsonplaceholder.typicode.com/todos?_limit=5")
-        const rawTodos = await responst.json();
+        // 请求数据
 
-        if (rawTodos as ITodoListItem) {
-            const items = <ITodoListItem[]>rawTodos;
+        // const responst = await fetch("https://jsonplaceholder.typicode.com/todos?_limit=5")
 
-            for (const item of items) {
-                todos.value.push(item)
-            }
-        }
+        // const rawTodos = await responst.json();
+
+        // if (rawTodos as ITodoListItem) {
+        //     const items = <ITodoListItem[]>rawTodos;
+
+        //     for (const item of items) {
+        //         todos.value.push(item)
+        //     }
+        // }
     };
 
     onMounted(() => {
@@ -31,5 +38,5 @@ export default function userTodos(): IUseTodos {
 
 export interface IUseTodos {
     todos: Ref<ITodoListItem[]>,
-    addTodo: (todo: never) => number
+    addTodo: (todo: ITodoListItem) => void
 }
