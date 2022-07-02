@@ -3,7 +3,7 @@
     <div class="container">
       <h1>欢迎使用 Feng 待办事项！</h1>
       <todo-add :tid="todos.length" @add-todo="addTodo" />
-      <todo-filter :selected="filter" @change-filter="filter = $event" />
+      <todo-filter :selected="filter" @change-filter="changeFilter" />
       <todo-list :todos="filteredTodos" />
     </div>
   </main>
@@ -27,11 +27,18 @@ export default defineComponent({
   setup() {
     const { todos, addTodo } = useTodos();
     const { filter, filteredTodos } = useFilteredTodos(todos);
+
+    const changeFilter = ($event: string) => {
+      filter.value = $event;
+      console.log($event)
+    }
+
     return {
       todos,
       filter,
       addTodo,
       filteredTodos,
+      changeFilter
     }
   }
 });
