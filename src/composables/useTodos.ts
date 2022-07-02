@@ -11,19 +11,18 @@ export default function useTodos(): IUseTodos {
 
     const fetchTodos = async () => {
         // 请求数据
+        // const responst = await fetch("https://jsonplaceholder.typicode.com/todos?_limit=5")
 
-        const responst = await fetch("https://jsonplaceholder.typicode.com/todos?_limit=5")
+        // const rawTodos = await responst.json();
+        // console.log(rawTodos)
+        // if (rawTodos as ITodoListItem) {
+        //     const items = <ITodoListItem[]>rawTodos;
+        //     console.log(items)
 
-        const rawTodos = await responst.json();
-        console.log(rawTodos)
-        if (rawTodos as ITodoListItem) {
-            const items = <ITodoListItem[]>rawTodos;
-            console.log(items)
-
-            for (const item of items) {
-                todos.value.push(item)
-            }
-        }
+        //     for (const item of items) {
+        //         todos.value.push(item)
+        //     }
+        // }
     };
 
     onMounted(() => {
