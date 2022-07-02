@@ -1,5 +1,5 @@
 export default interface ITodoListItem{
     id:string,
-    content:string,
+    title:string,
     completed:boolean
 }

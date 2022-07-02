@@ -6,7 +6,7 @@
         :checked="todoItem?.completed"
         @click="$emit('change-state', $event)"
       />
-      {{ todoItem?.content }}
+      {{ todoItem?.title }}
       <span class="check-button"></span>
     </label>
   </div>

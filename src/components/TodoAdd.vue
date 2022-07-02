@@ -31,7 +31,7 @@ function useEmitAddTodo(tid:any, emit:any) {
   const emitAddTodo = () => {
     const todo:ITodoListItem = {
       id: tid,
-      content: todoContent.value,
+      title: todoContent.value,
       completed: false,
     };
     emit("add-todo", todo);
